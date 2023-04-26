@@ -1,0 +1,127 @@
+{
+  "ovh.dns": {
+    "declarations": [
+      {
+        "channelPath": "/modules/dns.nix",
+        "path": "modules/dns.nix",
+        "url": "https://github.com/terranix/terranix-module-ovh/tree/main/module/modules/dns.nix"
+      }
+    ],
+    "description": "Manage OVH DNS entries",
+    "loc": [
+      "ovh",
+      "dns"
+    ],
+    "readOnly": false,
+    "type": "attribute set of submodules"
+  },
+  "ovh.dns.<name>.addPrefix": {
+    "declarations": [
+      {
+        "channelPath": "/modules/dns.nix",
+        "path": "modules/dns.nix",
+        "url": "https://github.com/terranix/terranix-module-ovh/tree/main/module/modules/dns.nix"
+      }
+    ],
+    "default": false,
+    "description": "Whether the www. prefix should be added (if applicable)\n",
+    "loc": [
+      "ovh",
+      "dns",
+      "<name>",
+      "addPrefix"
+    ],
+    "readOnly": false,
+    "type": "boolean"
+  },
+  "ovh.dns.<name>.subdomain": {
+    "declarations": [
+      {
+        "channelPath": "/modules/dns.nix",
+        "path": "modules/dns.nix",
+        "url": "https://github.com/terranix/terranix-module-ovh/tree/main/module/modules/dns.nix"
+      }
+    ],
+    "default": "‹name›",
+    "description": "The subdomain (under the chosen domain) to create.\n",
+    "loc": [
+      "ovh",
+      "dns",
+      "<name>",
+      "subdomain"
+    ],
+    "readOnly": false,
+    "type": "string"
+  },
+  "ovh.dns.<name>.target": {
+    "declarations": [
+      {
+        "channelPath": "/modules/dns.nix",
+        "path": "modules/dns.nix",
+        "url": "https://github.com/terranix/terranix-module-ovh/tree/main/module/modules/dns.nix"
+      }
+    ],
+    "description": "The target the subdomain should point to.\nNote that this can be either a preset string or a\nterraform reference.\n",
+    "loc": [
+      "ovh",
+      "dns",
+      "<name>",
+      "target"
+    ],
+    "readOnly": false,
+    "type": "string"
+  },
+  "ovh.dns.<name>.ttl": {
+    "declarations": [
+      {
+        "channelPath": "/modules/dns.nix",
+        "path": "modules/dns.nix",
+        "url": "https://github.com/terranix/terranix-module-ovh/tree/main/module/modules/dns.nix"
+      }
+    ],
+    "default": 60,
+    "description": "The TTL of the created DNS entry",
+    "loc": [
+      "ovh",
+      "dns",
+      "<name>",
+      "ttl"
+    ],
+    "readOnly": false,
+    "type": "signed integer"
+  },
+  "ovh.dns.<name>.type": {
+    "declarations": [
+      {
+        "channelPath": "/modules/dns.nix",
+        "path": "modules/dns.nix",
+        "url": "https://github.com/terranix/terranix-module-ovh/tree/main/module/modules/dns.nix"
+      }
+    ],
+    "description": "Type of the DNS entry to create (A, AAAA, CNAME, etc.)\n",
+    "loc": [
+      "ovh",
+      "dns",
+      "<name>",
+      "type"
+    ],
+    "readOnly": false,
+    "type": "string"
+  },
+  "ovh.dnsDomain": {
+    "declarations": [
+      {
+        "channelPath": "/modules/dns.nix",
+        "path": "modules/dns.nix",
+        "url": "https://github.com/terranix/terranix-module-ovh/tree/main/module/modules/dns.nix"
+      }
+    ],
+    "description": "The domain that is managed",
+    "loc": [
+      "ovh",
+      "dnsDomain"
+    ],
+    "readOnly": false,
+    "type": "string"
+  }
+}
