@@ -62,8 +62,9 @@ in
         value = getAttr name cfg;
         add_www_prefix = value.addPrefix && (value.type == "A" || value.type == "AAAA" || value.type == "CNAME");
 
-        target = if value.type != "CNAME" then value.target else
+        targetWithDomain = if value.type != "CNAME" then value.target else
           (if hasSuffix domain value.target then value.target else "${value.target}.${domain}");
+        target = if hasSuffix "." targetWithDomain then targetWithDomain else "${targetWithDomain}.";
       in
       singleton
         {
