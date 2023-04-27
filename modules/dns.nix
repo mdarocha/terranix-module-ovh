@@ -61,12 +61,16 @@ in
       let
         value = getAttr name cfg;
         add_www_prefix = value.addPrefix && (value.type == "A" || value.type == "AAAA" || value.type == "CNAME");
+
+        target = if value.type != "CNAME" then value.target else
+          (if hasSuffix domain value.target then value.target else "${value.target}.${domain}");
       in
       singleton
         {
           name = "${replaceStrings ["."] ["-"] name}-record";
           value = {
-            inherit (value) subdomain target ttl;
+            inherit (value) subdomain ttl;
+            inherit target;
             fieldtype = value.type;
 
             zone = domain;
@@ -74,7 +78,7 @@ in
         } ++ optional add_www_prefix {
         name = "${replaceStrings ["."] ["-"] name}-record-www";
         value = {
-          target = value.subdomain;
+          inherit target;
           subdomain = "www.${value.subdomain}";
           fieldtype = "CNAME";
 
