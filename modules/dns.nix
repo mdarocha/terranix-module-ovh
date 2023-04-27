@@ -64,7 +64,7 @@ in
 
         targetWithDomain = if value.type != "CNAME" then value.target else
           (if hasSuffix domain value.target then value.target else "${value.target}.${domain}");
-        target = if hasSuffix "." targetWithDomain then targetWithDomain else "${targetWithDomain}.";
+        target = if (hasSuffix "." targetWithDomain || value.type != "CNAME") then targetWithDomain else "${targetWithDomain}.";
       in
       singleton
         {
