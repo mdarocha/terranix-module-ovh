@@ -15,6 +15,7 @@ in
     };
 
     dns = mkOption {
+      default = {};
       description = "Manage OVH DNS entries";
       type = attrsOf (submodule ({ name, ... }: {
         options = {
