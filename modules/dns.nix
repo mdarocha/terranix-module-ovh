@@ -52,6 +52,14 @@ in
               Whether the www. prefix should be added (if applicable)
             '';
           };
+          addSuffix = mkOption {
+            type = bool;
+            default = true;
+            description = ''
+              Whether the given target should be extended with the dnsDomain if applicable.
+              This happens ie. for CNAME records that don't specify a domain down to a TLD.
+            '';
+          };
         };
       }));
     };
@@ -70,7 +78,7 @@ in
           tlds = builtins.fromJSON (builtins.readFile ./tlds.json);
           hasTldSuffix = builtins.any (tld: hasSuffix ".${tld}" value.target) tlds;
         in
-        if isCNAME && !hasDomainSuffix && !hasTldSuffix
+        if isCNAME && !hasDomainSuffix && !hasTldSuffix && value.addSuffix
         then "${value.target}.${domain}"
         else value.target;
 

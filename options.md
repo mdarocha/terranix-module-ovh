@@ -19,6 +19,16 @@
 <br>
 </li>
 <li>
+  <b><u>ovh.dns.&lt;name&gt;.addSuffix</u></b><br>
+  <b>type</b>: boolean<br>
+  <b>default</b>: true<br>
+  <b>example</b>: null<br>
+  <b>defined</b>: <a href="https://github.com/terranix/terranix-module-ovh/tree/main/module/modules/dns.nix">modules/dns.nix</a><br>
+  <b>description</b>: Whether the given target should be extended with the dnsDomain if applicable.
+This happens ie. for CNAME records that don&#39;t specify a domain down to a TLD.
+<br>
+</li>
+<li>
   <b><u>ovh.dns.&lt;name&gt;.subdomain</u></b><br>
   <b>type</b>: string<br>
   <b>default</b>: &#34;‹name›&#34;<br>

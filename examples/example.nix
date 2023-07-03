@@ -31,5 +31,11 @@
       target = "another.domain.net";
       type = "CNAME";
     };
+    test6 = {
+      subdomain = "test6";
+      target = "this.is.a.tld.example";
+      type = "CNAME";
+      addSuffix = false;
+    };
   };
 }

@@ -35,6 +35,25 @@
     "readOnly": false,
     "type": "boolean"
   },
+  "ovh.dns.<name>.addSuffix": {
+    "declarations": [
+      {
+        "channelPath": "/modules/dns.nix",
+        "path": "modules/dns.nix",
+        "url": "https://github.com/terranix/terranix-module-ovh/tree/main/module/modules/dns.nix"
+      }
+    ],
+    "default": true,
+    "description": "Whether the given target should be extended with the dnsDomain if applicable.\nThis happens ie. for CNAME records that don't specify a domain down to a TLD.\n",
+    "loc": [
+      "ovh",
+      "dns",
+      "<name>",
+      "addSuffix"
+    ],
+    "readOnly": false,
+    "type": "boolean"
+  },
   "ovh.dns.<name>.subdomain": {
     "declarations": [
       {
