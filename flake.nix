@@ -36,7 +36,7 @@
           apps.options =
             let
               mustacheTemplate = pkgs.writeText "template.mustache" ''
-                # example module options
+                # ovh module options
 
                 <ul>
                 {{#options}}

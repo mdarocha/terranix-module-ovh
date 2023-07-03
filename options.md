@@ -1,10 +1,10 @@
-# example module options
+# ovh module options
 
 <ul>
 <li>
   <b><u>ovh.dns</u></b><br>
   <b>type</b>: attribute set of submodules<br>
-  <b>default</b>: null<br>
+  <b>default</b>: {}<br>
   <b>example</b>: null<br>
   <b>defined</b>: <a href="https://github.com/terranix/terranix-module-ovh/tree/main/module/modules/dns.nix">modules/dns.nix</a><br>
   <b>description</b>: Manage OVH DNS entries<br>
