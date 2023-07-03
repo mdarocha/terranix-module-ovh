@@ -63,8 +63,17 @@ in
         value = getAttr name cfg;
         add_www_prefix = value.addPrefix && (value.type == "A" || value.type == "AAAA" || value.type == "CNAME");
 
-        targetWithDomain = if value.type != "CNAME" then value.target else
-          (if hasSuffix domain value.target then value.target else "${value.target}.${domain}");
+        targetWithDomain = let
+          isCNAME = value.type == "CNAME";
+          hasDomainSuffix = hasSuffix domain value.target;
+
+          tlds = builtins.fromJSON (builtins.readFile ./tlds.json);
+          hasTldSuffix = builtins.any (tld: hasSuffix ".${tld}" value.target) tlds;
+        in
+        if isCNAME && !hasDomainSuffix && !hasTldSuffix
+        then "${value.target}.${domain}"
+        else value.target;
+
         target = if (hasSuffix "." targetWithDomain || value.type != "CNAME") then targetWithDomain else "${targetWithDomain}.";
       in
       singleton

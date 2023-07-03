@@ -26,5 +26,10 @@
       target = "test2.example.com";
       type = "CNAME";
     };
+    test5 = {
+      subdomain = "test5";
+      target = "another.domain.net";
+      type = "CNAME";
+    };
   };
 }
