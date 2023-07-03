@@ -1,0 +1,26 @@
+name: Update TLDs
+
+on:
+  schedule:
+    - cron: "0 0 * * 0"  # Runs every Sunday at 12:00 AM UTC
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Nix
+        uses: cachix/install-nix-action@v12
+
+      - name: Run script to update TLDs
+        run: ./scripts/root-tlds.py
+
+      - name: Commit the changed files
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: ./modules/tlds.json
+          default_author: github_actions
+          message: 'Update tlds.json'
